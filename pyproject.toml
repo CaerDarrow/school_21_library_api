@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "school_21_library_api"
+name = "library_api"
 version = "0.1.0"
 description = ""
 authors = ["Ivan <ApxuBapuyc@bk.ru>"]
@@ -20,3 +20,7 @@ requests = "^2.24.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."library_api.modules"]
+"users" = "library_api.views.users"
+"books" = "library_api.views.books"
