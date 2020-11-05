@@ -24,3 +24,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.plugins."library_api.modules"]
 "users" = "library_api.views.users"
 "books" = "library_api.views.books"
+"book_exemplars" = "library_api.views.book_exemplars"

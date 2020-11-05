@@ -1,33 +1,37 @@
 import uuid
 from fastapi import APIRouter
 from pydantic import BaseModel
-
 from ..models.books.book_meta import BooksMeta
-from ..models.books.book_exemplars import BooksExemplars
+
 
 router = APIRouter()
 
 
-class BookModel(BaseModel):
+class BookMetaModelIn(BaseModel):
     name: str
 
+    class Config:
+        orm_mode = True
 
-@router.get("/books/{uid}")
+
+class BookMetaModelOut(BaseModel):
+    id: uuid.UUID
+    name: str
+
+    class Config:
+        orm_mode = True
+
+
+@router.get("/books/{uid}", response_model=BookMetaModelOut)
 async def get_book(uid: uuid.UUID):
-    user = await BooksMeta.get_or_404(uid)
-    return user.to_dict()
+    book_meta = await BooksMeta.get_or_404(uid)
+    return book_meta
 
 
-@router.get("/books/{uid}/exemplars")
-async def get_book(uid: uuid.UUID):
-    user = await BooksExemplars.get_or_404(uid)
-    return user.to_dict()
-
-
-@router.post("/books")
-async def add_book(book: BookModel):
-    rv = await BooksMeta.create(name=book.name)
-    return rv.to_dict()
+@router.post("/books", response_model=BookMetaModelOut)
+async def add_book(book: BookMetaModelIn):
+    book_meta = await BooksMeta.create(name=book.name)
+    return book_meta
 
 
 @router.delete("/books/{uid}")
