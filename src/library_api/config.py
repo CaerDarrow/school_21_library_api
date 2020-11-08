@@ -3,6 +3,7 @@ from starlette.config import Config
 from starlette.datastructures import Secret
 
 config = Config(".env")
+VERSION = config("VERSION", cast=str, default="0.0.0")
 
 DB_DRIVER = config("DB_DRIVER", default="postgresql")
 DB_HOST = config("DB_HOST", default=None)
@@ -31,3 +32,4 @@ DB_USE_CONNECTION_FOR_REQUEST = config(
 )
 DB_RETRY_LIMIT = config("DB_RETRY_LIMIT", cast=int, default=1)
 DB_RETRY_INTERVAL = config("DB_RETRY_INTERVAL", cast=int, default=1)
+

@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from .models import db
+from .config import VERSION
 import logging
 from importlib.metadata import entry_points
 
@@ -17,7 +18,7 @@ def load_modules(app=None):
 
 
 def get_app():
-    app = FastAPI(title="library API 0.1.0")
+    app = FastAPI(title=f"library API {VERSION}")
     db.init_app(app=app)
     load_modules(app)
     return app

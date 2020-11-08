@@ -12,6 +12,7 @@ uvicorn = "^0.12.2"
 gunicorn = "^20.0.4"
 alembic = "^1.4.3"
 psycopg2 = "^2.8.6"
+stringcase = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.2"
@@ -24,4 +25,5 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.plugins."library_api.modules"]
 "users" = "library_api.views.users"
 "books" = "library_api.views.books"
-"book_exemplars" = "library_api.views.book_exemplars"
+"book_instances" = "library_api.views.book_instances"
+"book_instance_states" = "library_api.views.book_instance_states"
