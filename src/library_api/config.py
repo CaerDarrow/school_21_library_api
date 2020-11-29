@@ -33,3 +33,5 @@ DB_USE_CONNECTION_FOR_REQUEST = config(
 DB_RETRY_LIMIT = config("DB_RETRY_LIMIT", cast=int, default=1)
 DB_RETRY_INTERVAL = config("DB_RETRY_INTERVAL", cast=int, default=1)
 
+AUTH_42_CLIENT_ID = config("AUTH_42_CLIENT_ID", cast=str)
+AUTH_42_CLIENT_SECRET = config("AUTH_42_CLIENT_SECRET", cast=str)

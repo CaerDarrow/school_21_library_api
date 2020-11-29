@@ -6,17 +6,21 @@ authors = ["Ivan <ApxuBapuyc@bk.ru>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.61.1"
+fastapi = "^0.62.0"
 gino = {extras = ["starlette"], version = "^1.0.1"}
-uvicorn = "^0.12.2"
+uvicorn = "^0.12.3"
 gunicorn = "^20.0.4"
 alembic = "^1.4.3"
 psycopg2 = "^2.8.6"
 stringcase = "^1.2.0"
+Authlib = "^0.15.2"
+itsdangerous = "^1.1.0"
+httpx = "^0.16.1"
+pyngrok = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.2"
-requests = "^2.24.0"
+requests = "^2.25.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -27,3 +31,4 @@ build-backend = "poetry.core.masonry.api"
 "books" = "library_api.views.books"
 "book_instances" = "library_api.views.book_instances"
 "book_instance_states" = "library_api.views.book_instance_states"
+"login" = "library_api.views.login"
